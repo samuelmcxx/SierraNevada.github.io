@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sierra Nevada de Santa Marta — Biodiversidad</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="page-loader">
+  <div class="loader-logo">Sierra <span>Nevada</span></div>
+  <p class="loader-sub">IED NICOLAS BUENAVENTURA</p>
+  <div class="loader-bar-wrap">
+    <div class="loader-bar"></div>
+  </div>
+</div>
+
+  <!-- ═══════════════════════════════════════
+       CURSOR GLOW (sigue el mouse)
+  ═══════════════════════════════════════ -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- Barra de progreso de lectura -->
+  <div id="progress-bar"></div>
+
+
+  <!-- ═══════════════════════════════════════
+       NAVEGACIÓN
+  ═══════════════════════════════════════ -->
+  <nav id="navbar">
+
+    <!-- Logo -->
+    <a href="#hero" class="nav-logo">
+      <img src="img/icono.jpg" alt="Logo Sierra Nevada" class="nav-logo-img" />
+      Sierra Nevada <span>&nbsp;· Biodiversidad</span>
+    </a>
+
+    <!-- Links escritorio -->
+    <ul class="nav-links">
+      <li><a href="#biodiversidad">Biodiversidad</a></li>
+      <li><a href="#galeria">Galería</a></li>
+      <li><a href="#mapa">Mapa</a></li>
+      <li><a href="#timeline">Historia</a></li>
+      <li><a href="#amenazas">Conservación</a></li>
+      <li><a href="#glosario">Glosario</a></li>
+      <li><a href="#quiz">Quiz</a></li>
+    </ul>
+
+    <!-- Acciones -->
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Cambiar modo claro/oscuro"></button>
+      <a href="#amenazas" class="nav-cta">Explora Ahora</a>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Menú móvil -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#biodiversidad">Biodiversidad</a>
+    <a href="#galeria">Galería</a>
+    <a href="#mapa">Mapa</a>
+    <a href="#timeline">Historia Ecológica</a>
+    <a href="#amenazas">Conservación</a>
+    <a href="#glosario">Glosario</a>
+    <a href="#quiz">Quiz</a>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════
+       HERO — Pantalla completa
+  ═══════════════════════════════════════ -->
+  <section id="hero">
+
+    <!-- Foto real de la Sierra Nevada -->
+    <div class="hero-photo" id="heroMountain"
+         style="background-image:url(img/fondo.jpg);"></div>
+
+    <!-- Fondo degradado (oscurece la foto para que el texto se lea bien) -->
+    <div class="hero-bg"></div>
+
+    <!-- Canvas de partículas flotantes -->
+    <canvas id="particles"></canvas>
+
+    <!-- Crédito de la foto -->
+    <span class="hero-photo-credit">
+      Foto: Wikimedia Commons (CC BY-SA 4.0)
+    </span>
+
+    <!-- Contenido central -->
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="dot-pulse"></span>
+        Patrimonio Natural de Colombia
+      </div>
+
+      <h1 class="hero-title">
+        Sierra Nevada<br>de <em>Santa Marta</em>
+      </h1>
+
+      <p class="hero-sub">
+        La montaña costera más alta del mundo alberga uno de los ecosistemas
+        más complejos y biodiversos del planeta. Un refugio de vida entre el mar y el cielo,
+        donde en solo 42 km se recorren casi todos los climas de la Tierra.
+      </p>
+
+      <div class="hero-btns">
+        <a href="#biodiversidad" class="btn-primary">Explorar Biodiversidad</a>
+        <a href="#mapa"          class="btn-ghost">Ver Mapa Interactivo</a>
+      </div>
+    </div>
+
+    <!-- Indicador de scroll -->
+    <div class="hero-scroll">
+      Scroll
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       ESTADÍSTICAS ANIMADAS
+  ═══════════════════════════════════════ -->
+  <section id="stats">
+    <div class="stats-grid">
+
+      <div class="stat-card reveal delay-1">
+        <span class="stat-icon">
+          <img src="img/ave.jpg" alt="Ave Sierra Nevada" />
+        </span>
+        <span class="stat-number" data-target="628">0</span>
+        <span class="stat-label">Especies de Aves</span>
+      </div>
+
+      <div class="stat-card reveal delay-2">
+        <span class="stat-icon">
+          <img src="img/planta.jpg" alt="Plantas Sierra Nevada" />
+        </span>
+        <span class="stat-number" data-target="3000">0</span>
+        <span class="stat-label">Especies Vegetales</span>
+      </div>
+
+      <div class="stat-card reveal delay-3">
+        <span class="stat-icon">
+          <img src="img/reptil.jpg" alt="Reptil Sierra Nevada" />
+        </span>
+        <span class="stat-number" data-target="175">0</span>
+        <span class="stat-label">Reptiles y Anfibios</span>
+      </div>
+
+      <div class="stat-card reveal delay-4">
+        <span class="stat-icon">
+          <img src="img/montaña.jpg" alt="Montaña Sierra Nevada" />
+        </span>
+        <span class="stat-number" data-target="5775">0</span>
+        <span class="stat-label">Metros de Altitud</span>
+      </div>
+
+      <div class="stat-card reveal delay-1">
+        <span class="stat-icon">
+          <img src="img/mariposa.jpg" alt="Mariposa endémica Sierra Nevada" />
+        </span>
+        <span class="stat-number" data-target="860">0</span>
+        <span class="stat-label">Especies Endémicas</span>
+      </div>
+
+      <div class="stat-card reveal delay-2">
+        <span class="stat-icon">
+          <img src="img/rio.jpg" alt="Río Sierra Nevada" />
+        </span>
+        <span class="stat-number" data-target="36">0</span>
+        <span class="stat-label">Ríos Principales</span>
+      </div>
+
+    </div>
+
+    <div class="fun-fact reveal">
+      <span class="fun-fact-icon">💡</span>
+      <p><strong>¿Sabías que...?</strong> La Sierra Nevada de Santa Marta es la montaña costera más alta del mundo: en solo 42 km en línea recta se pasa del nivel del mar a los 5.775 m de altitud, atravesando casi todos los pisos térmicos del planeta.</p>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       BIODIVERSIDAD — Tarjetas interactivas
+  ═══════════════════════════════════════ -->
+  <section id="biodiversidad">
+    <div class="section-header reveal">
+      <span class="eyebrow">Naturaleza Viva</span>
+      <h2 class="section-title">Ecosistemas de la Sierra Nevada</h2>
+      <p class="section-desc">
+        Desde los glaciares eternos hasta los bosques tropicales húmedos,
+        cada piso térmico alberga formas de vida únicas e irrepetibles: cuanto más
+        aislado el hábitat, más probable es encontrar especies que no existen en
+        ningún otro lugar del planeta.
+      </p>
+    </div>
+
+    <div class="fun-fact reveal">
+      <span class="fun-fact-icon">💡</span>
+      <p><strong>¿Sabías que...?</strong> Se dice que una especie es <em>endémica</em> cuando solo existe en un lugar del planeta. La Sierra Nevada tiene más de 860 especies endémicas: si su hábitat desaparece, desaparecen para siempre. (Ver <a href="#glosario">glosario</a>)</p>
+    </div>
+
+    <div class="bio-grid">
+
+      <!-- Fauna 1 -->
+      <div class="bio-card fauna reveal delay-1" onclick="openModal('fauna1')">
+        <div class="bio-card-img">
+          <!-- 
+            FOTO REAL: reemplaza este emoji por una etiqueta <img>
+            Ejemplo:
+            <img src="img/aves.jpg" alt="Aves endémicas Sierra Nevada" />
+          -->
+          <img src="img/condor.jpg" alt="Aves endémicas Sierra Nevada" />
+        </div>
+        <div class="bio-card-body">
+          <span class="bio-tag">Fauna</span>
+          <h3>Aves Endémicas</h3>
+          <p>El Cóndor de los Andes, el Colibrí de Santa Marta y más de 60 especies endémicas hacen de esta sierra un paraíso para la ornitología mundial.</p>
+        </div>
+        <div class="bio-card-footer">
+          <span class="bio-species">628 especies registradas</span>
+          <div class="bio-arrow">→</div>
+        </div>
+      </div>
+
+      <!-- Fauna 2 -->
+      <div class="bio-card fauna reveal delay-2" onclick="openModal('fauna2')">
+        <div class="bio-card-img"><img src="img/jaguar.jpg" alt="Aves endémicas Sierra Nevada" />
+</div>
+        <div class="bio-card-body">
+          <span class="bio-tag">Fauna</span>
+          <h3>Mamíferos Mayores</h3>
+          <p>El jaguar, el puma, el oso de anteojos y el tapir andino deambulan por los bosques de niebla, últimos reductos de fauna silvestre neotropical.</p>
+        </div>
+        <div class="bio-card-footer">
+          <span class="bio-species">130+ especies de mamíferos</span>
+          <div class="bio-arrow">→</div>
+        </div>
+      </div>
+
+      <!-- Flora 1 -->
+      <div class="bio-card flora reveal delay-3" onclick="openModal('flora1')">
+        <div class="bio-card-img"><img src="img/orquidea.jpg" alt="Aves endémicas Sierra Nevada" />
+</div>
+        <div class="bio-card-body">
+          <span class="bio-tag">Flora</span>
+          <h3>Orquídeas y Bromelias</h3>
+          <p>Más de 600 especies de orquídeas y 400 bromelias adornan los bosques húmedos. Un jardín vertical de biodiversidad sin igual en el trópico.</p>
+        </div>
+        <div class="bio-card-footer">
+          <span class="bio-species">3.000+ especies vegetales</span>
+          <div class="bio-arrow">→</div>
+        </div>
+      </div>
+
+      <!-- Flora 2 -->
+      <div class="bio-card flora reveal delay-1" onclick="openModal('flora2')">
+        <div class="bio-card-img">        <img src="img/sierra-nevada-galeria-2.webp" alt="Aves endémicas Sierra Nevada" />
+</div>
+        <div class="bio-card-body">
+          <span class="bio-tag">Flora</span>
+          <h3>Bosques de Niebla</h3>
+          <p>A 2.000–3.000 m.s.n.m., la niebla permanente nutre musgos, líquenes y helechos que cubren cada superficie de estos bosques primarios.</p>
+        </div>
+        <div class="bio-card-footer">
+          <span class="bio-species">Piso montano: 2.000–3.500 m</span>
+          <div class="bio-arrow">→</div>
+        </div>
+      </div>
+
+      <!-- Ecosistema 1 -->
+      <div class="bio-card ecosistema reveal delay-2" onclick="openModal('eco1')">
+        <div class="bio-card-img"><img src="img/picos.jpg" alt="Aves endémicas Sierra Nevada" /></div>
+        <div class="bio-card-body">
+          <span class="bio-tag">Ecosistema</span>
+          <h3>Glaciares y Nieves</h3>
+          <p>Los picos Simón Bolívar y Cristóbal Colón coronan un sistema glaciar tropical único. Reservorios hídricos estratégicos para el Caribe.</p>
+        </div>
+        <div class="bio-card-footer">
+          <span class="bio-species">Piso nival: +5.000 m</span>
+          <div class="bio-arrow">→</div>
+        </div>
+      </div>
+
+      <!-- Ecosistema 2 -->
+      <div class="bio-card ecosistema reveal delay-3" onclick="openModal('eco2')">
+        <div class="bio-card-img"><img src="img/rios.jpg" alt="Aves endémicas Sierra Nevada" /></div>
+        <div class="bio-card-body">
+          <span class="bio-tag">Ecosistema</span>
+          <h3>Ríos y Humedales</h3>
+          <p>36 cuencas hidrográficas nacen en sus laderas, abasteciendo de agua dulce a más de 1,5 millones de personas en la región Caribe.</p>
+        </div>
+        <div class="bio-card-footer">
+          <span class="bio-species">36 cuencas hídricas</span>
+          <div class="bio-arrow">→</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       GALERÍA VISUAL
+  ═══════════════════════════════════════ -->
+<section id="galeria">
+  <div class="section-header reveal">
+    <span class="eyebrow">Imágenes del Paraíso</span>
+    <h2 class="section-title">Galería Visual</h2>
+    <p class="section-desc">Una ventana a los paisajes más espectaculares de la sierra más biodiversa del país.</p>
+  </div>
+
+  <!-- CONTROLES -->
+  <div class="gallery-top-bar">
+    <div class="gallery-filters" id="gallery-filters">
+      <button class="filter-btn active" data-cat="all">Todos</button>
+      <button class="filter-btn" data-cat="aves">🪶 Aves</button>
+      <button class="filter-btn" data-cat="flora">🌿 Flora</button>
+      <button class="filter-btn" data-cat="fauna">🐾 Fauna</button>
+      <button class="filter-btn" data-cat="paisaje">🏔️ Paisaje</button>
+      <button class="filter-btn" data-cat="acuatico">💧 Acuático</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px">
+      <span class="gallery-count" id="gallery-count">16 fotos</span>
+      <div class="view-toggle">
+        <button class="view-btn active" id="btn-grid" title="Cuadrícula">⊞</button>
+        <button class="view-btn" id="btn-list" title="Lista">≡</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENEDORES -->
+  <div id="gallery-grid" class="gallery-grid-view"></div>
+  <div id="gallery-list" class="gallery-list-view" style="display:none"></div>
+  <div id="gallery-empty" class="gallery-empty" style="display:none">
+    <p>No hay fotos en esta categoría aún.</p>
+  </div>
+</section>
+
+
+  <!-- ═══════════════════════════════════════
+       MAPA INTERACTIVO
+  ═══════════════════════════════════════ -->
+  <section id="mapa">
+    <div class="section-header reveal">
+      <span class="eyebrow">Geografía Sagrada</span>
+      <h2 class="section-title">Mapa Ecológico</h2>
+      <p class="section-desc">Zonas de vida desde el mar Caribe hasta las cimas nevadas en solo 42 km de distancia horizontal.</p>
+    </div>
+
+    <div class="fun-fact reveal">
+      <span class="fun-fact-icon">💡</span>
+      <p><strong>¿Sabías que...?</strong> Este gradiente de altitud tan extremo en tan poca distancia se llama <em>piso térmico</em>: cada franja de altura tiene su propia temperatura, lluvia y ecosistema, como si subieras del Ecuador al Polo Norte en un solo día.</p>
+    </div>
+
+    <div class="map-container">
+
+      <!-- SVG del mapa -->
+      <div class="map-svg-wrap reveal-left">
+        <svg viewBox="0 0 500 420" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="oceanGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%"   stop-color="#1a3550"/>
+              <stop offset="100%" stop-color="#0a1628"/>
+            </linearGradient>
+            <linearGradient id="forestGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%"   stop-color="#1B4D3E"/>
+              <stop offset="100%" stop-color="#2E8B57"/>
+            </linearGradient>
+            <radialGradient id="snowGrad">
+              <stop offset="0%"   stop-color="#F0F7F4"/>
+              <stop offset="60%"  stop-color="#B8D4C8"/>
+              <stop offset="100%" stop-color="#7EC8A4"/>
+            </radialGradient>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+              <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+
+          <!-- Océano / fondo -->
+          <rect width="500" height="420" fill="url(#oceanGrad)" rx="12"/>
+
+          <!-- Costa -->
+          <path d="M0,200 Q50,190 120,200 Q180,210 220,180 Q260,160 300,170 Q350,180 400,160 Q450,145 500,155 L500,420 L0,420 Z"
+                fill="#0D2818" opacity="0.8"/>
+
+          <!-- Cuerpo principal de la sierra -->
+          <path d="M80,320 Q100,280 130,250 Q160,210 200,185 Q240,165 280,170 Q320,175 360,200 Q390,220 410,260 Q430,300 420,340 L80,340 Z"
+                fill="url(#forestGrad)"/>
+
+          <!-- Zona baja de bosques -->
+          <path d="M60,360 Q100,330 160,310 Q220,295 270,300 Q330,305 380,320 Q420,330 440,350 L60,380 Z"
+                fill="#2E8B57" opacity="0.6"/>
+
+          <!-- Bosque de niebla -->
+          <path d="M130,260 Q160,235 200,220 Q240,210 275,215 Q310,220 340,240 Q360,255 365,275 Q340,265 300,255 Q260,245 220,248 Q180,252 155,268 Z"
+                fill="#4a9a6a" opacity="0.7"/>
+
+          <!-- Nevados -->
+          <polygon points="220,95 195,165 245,165" fill="url(#snowGrad)" opacity="0.95"/>
+          <polygon points="265,110 240,175 290,175" fill="url(#snowGrad)" opacity="0.9"/>
+          <polygon points="240,88 210,160 270,160" fill="#F0F7F4" opacity="0.4"/>
+
+          <!-- Ríos -->
+          <path d="M222,110 Q200,160 180,220 Q165,260 150,310"
+                stroke="#7EC8A4" stroke-width="1.5" fill="none" opacity="0.7"/>
+          <path d="M265,125 Q280,175 295,230 Q305,270 310,315"
+                stroke="#7EC8A4" stroke-width="1.5" fill="none" opacity="0.7"/>
+
+          <!-- Límite del Parque Nacional (línea punteada) -->
+          <rect x="150" y="185" width="160" height="130" rx="8"
+                fill="none" stroke="#7EC8A4" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.5"/>
+
+          <!-- Puntos interactivos -->
+          <circle cx="222" cy="95"  r="6" fill="#7EC8A4" filter="url(#glow)" class="map-dot" data-zone="0" style="cursor:pointer"/>
+          <circle cx="265" cy="110" r="5" fill="#7EC8A4" filter="url(#glow)" class="map-dot" data-zone="1" style="cursor:pointer"/>
+          <circle cx="160" cy="300" r="5" fill="#C8A96E" filter="url(#glow)" class="map-dot" data-zone="2" style="cursor:pointer"/>
+          <circle cx="300" cy="290" r="5" fill="#C8A96E" filter="url(#glow)" class="map-dot" data-zone="3" style="cursor:pointer"/>
+          <circle cx="230" cy="340" r="5" fill="#C8A96E" filter="url(#glow)" class="map-dot" data-zone="4" style="cursor:pointer"/>
+
+          <!-- Etiquetas -->
+          <text x="245" y="150" font-size="9"   fill="#F0F7F4" text-anchor="middle" font-family="Inter" opacity="0.8">Parque Nacional</text>
+          <text x="245" y="162" font-size="7.5" fill="#B8D4C8" text-anchor="middle" font-family="Inter" opacity="0.7">Sierra Nevada</text>
+          <text x="222" y="84"  font-size="7"   fill="#7EC8A4" text-anchor="middle" font-family="Inter" font-weight="600">P. Bolívar</text>
+          <text x="268" y="100" font-size="7"   fill="#7EC8A4" text-anchor="middle" font-family="Inter" font-weight="600">P. Colón</text>
+          <text x="100" y="150" font-size="11"  fill="#7EC8A4" font-family="Inter"  font-weight="300" opacity="0.6" font-style="italic">Mar Caribe</text>
+
+          <!-- Brújula -->
+          <circle cx="455" cy="55" r="18" fill="rgba(126,200,164,0.08)" stroke="rgba(126,200,164,0.3)" stroke-width="1"/>
+          <text x="455" y="43" font-size="8" fill="#7EC8A4" text-anchor="middle" font-family="Inter" font-weight="600">N</text>
+          <line x1="455" y1="47" x2="455" y2="70" stroke="#7EC8A4" stroke-width="1" opacity="0.5"/>
+          <line x1="443" y1="57" x2="467" y2="57" stroke="rgba(126,200,164,0.4)" stroke-width="1"/>
+
+          <!-- Escala -->
+          <line x1="30" y1="395" x2="110" y2="395" stroke="#7EC8A4" stroke-width="1.5" opacity="0.5"/>
+          <text x="70" y="410" font-size="8" fill="#B8D4C8" text-anchor="middle" font-family="Inter">40 km</text>
+        </svg>
+      </div>
+
+      <!-- Cards de información del mapa -->
+      <div class="map-info-cards reveal-right">
+
+        <div class="map-point-card active" onclick="activateMapCard(this)" data-zone="0">
+          <h4> Pico Simón Bolívar</h4>
+          <p>El punto más alto de Colombia y la montaña costera más alta del mundo.</p>
+          <span class="map-alt">5.775 m.s.n.m.</span>
+        </div>
+
+        <div class="map-point-card" onclick="activateMapCard(this)" data-zone="1">
+          <h4> Pico Cristóbal Colón</h4>
+          <p>Gemelo del Simón Bolívar, glaciar tropical en retroceso por el cambio climático.</p>
+          <span class="map-alt">5.775 m.s.n.m.</span>
+        </div>
+
+        <div class="map-point-card" onclick="activateMapCard(this)" data-zone="2">
+          <h4> Ciudad Perdida</h4>
+          <p>Ciudad Teyuna, corazón espiritual de los pueblos Kogi, Arhuaco y Wiwa.</p>
+          <span class="map-alt">1.300 m.s.n.m.</span>
+        </div>
+
+        <div class="map-point-card" onclick="activateMapCard(this)" data-zone="3">
+          <h4> Cuenca del Río Cesar</h4>
+          <p>Principal río del flanco oriental, vital para la agricultura regional.</p>
+          <span class="map-alt">Flanco oriental</span>
+        </div>
+
+        <div class="map-point-card" onclick="activateMapCard(this)" data-zone="4">
+          <h4> Parque Nacional Natural</h4>
+          <p>383.000 ha protegidas. Reserva hídrica y núcleo de biodiversidad del Caribe.</p>
+          <span class="map-alt">383.000 ha</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       LÍNEA DE TIEMPO ECOLÓGICA
+  ═══════════════════════════════════════ -->
+  <section id="timeline">
+    <div class="section-header reveal">
+      <span class="eyebrow">Historia Ecológica</span>
+      <h2 class="section-title">Legado e Importancia</h2>
+      <p class="section-desc">Miles de años de historia natural y cultural que hacen de la Sierra Nevada un tesoro irremplazable.</p>
+    </div>
+
+    <div class="fun-fact reveal">
+      <span class="fun-fact-icon">💡</span>
+      <p><strong>¿Sabías que...?</strong> Para los pueblos Kogi, Arhuaco, Wiwa y Kankuamo, la Sierra Nevada es el <em>"Corazón del Mundo"</em>: creen que cuidar esta montaña es cuidar el equilibrio de todo el planeta.</p>
+    </div>
+
+    <div class="timeline-wrap">
+      <div class="timeline-line"></div>
+
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-card">
+            <span class="timeline-year">Hace 65 millones de años</span>
+            <h4>Formación Geológica</h4>
+            <p>Surgimiento de los Andes. La Sierra Nevada comienza su ascenso como bloque independiente, creando el aislamiento que impulsó la especiación endémica.</p>
+          </div>
+        </div>
+        <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
+        <div class="timeline-empty"></div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-empty"></div>
+        <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
+        <div class="timeline-content">
+          <div class="timeline-card">
+            <span class="timeline-year">Hace 10.000 años</span>
+            <h4>Presencia Humana Ancestral</h4>
+            <p>Los pueblos Tayrona establecen su civilización. Su cosmovisión integra a los seres humanos como guardianes del "Corazón del Mundo".</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-card">
+            <span class="timeline-year">1964</span>
+            <h4>Declaración Parque Nacional</h4>
+            <p>El Estado colombiano declara la Sierra Nevada Parque Nacional Natural, reconociendo su valor ecológico excepcional para la nación.</p>
+          </div>
+        </div>
+        <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
+        <div class="timeline-empty"></div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-empty"></div>
+        <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
+        <div class="timeline-content">
+          <div class="timeline-card">
+            <span class="timeline-year">1979</span>
+            <h4>Reserva de la Biosfera UNESCO</h4>
+            <p>La UNESCO reconoce la Sierra Nevada como Reserva de Biosfera y Patrimonio de la Humanidad por su biodiversidad y valores culturales únicos.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-card">
+            <span class="timeline-year">2000 – Presente</span>
+            <h4>Retos del Siglo XXI</h4>
+            <p>Cambio climático, deforestación y presión colonizadora amenazan los ecosistemas. Nuevas alianzas entre pueblos indígenas, ciencia y estado generan esperanza.</p>
+          </div>
+        </div>
+        <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
+        <div class="timeline-empty"></div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       AMENAZAS Y CONSERVACIÓN
+  ═══════════════════════════════════════ -->
+  <section id="amenazas">
+    <div class="section-header reveal">
+      <span class="eyebrow">Amenazas y Soluciones</span>
+      <h2 class="section-title">Conservación del Ecosistema</h2>
+      <p class="section-desc">Conocer las amenazas es el primer paso para actuar. La sierra necesita nuestra acción colectiva ahora.</p>
+    </div>
+
+    <div class="fun-fact reveal">
+      <span class="fun-fact-icon"></span>
+      <p><strong>¿Sabías que...?</strong> Los glaciares de los picos Bolívar y Cristóbal Colón podrían desaparecer por completo en las próximas décadas si el calentamiento global continúa al ritmo actual.</p>
+    </div>
+
+    <!-- Amenazas -->
+    <div class="threat-grid">
+
+      <div class="threat-card red reveal delay-1">
+        <span class="threat-icon"></span>
+        <h3>Cambio Climático</h3>
+        <p>Los glaciares han retrocedido más del 70% en el último siglo. Las temperaturas en los páramos aumentan 0.3 °C por década.</p>
+        <div class="threat-severity">
+          <span class="severity-label">Nivel de amenaza</span>
+          <div class="severity-bar"><div class="severity-fill" data-width="92%"></div></div>
+        </div>
+      </div>
+
+      <div class="threat-card orange reveal delay-2">
+        <span class="threat-icon"></span>
+        <h3>Deforestación</h3>
+        <p>Más de 60.000 ha de bosque nativo han sido convertidas en potreros y cultivos en los últimos 50 años.</p>
+        <div class="threat-severity">
+          <span class="severity-label">Nivel de amenaza</span>
+          <div class="severity-bar"><div class="severity-fill" data-width="78%"></div></div>
+        </div>
+      </div>
+
+      <div class="threat-card yellow reveal delay-3">
+        <span class="threat-icon"></span>
+        <h3>Escasez Hídrica</h3>
+        <p>El deterioro de los páramos reduce la regulación hídrica, generando sequías estacionales más severas en la región.</p>
+        <div class="threat-severity">
+          <span class="severity-label">Nivel de amenaza</span>
+          <div class="severity-bar"><div class="severity-fill" data-width="65%"></div></div>
+        </div>
+      </div>
+
+      <div class="threat-card orange reveal delay-1">
+        <span class="threat-icon"></span>
+        <h3>Expansión Urbana</h3>
+        <p>El crecimiento sin planificación genera presión sobre los ecosistemas de borde y corredores biológicos.</p>
+        <div class="threat-severity">
+          <span class="severity-label">Nivel de amenaza</span>
+          <div class="severity-bar"><div class="severity-fill" data-width="58%"></div></div>
+        </div>
+      </div>
+
+      <div class="threat-card red reveal delay-2">
+        <span class="threat-icon"></span>
+        <h3>Pérdida de Biodiversidad</h3>
+        <p>Más de 40 especies endémicas se encuentran en peligro crítico. La destrucción del hábitat fragmenta las poblaciones.</p>
+        <div class="threat-severity">
+          <span class="severity-label">Nivel de amenaza</span>
+          <div class="severity-bar"><div class="severity-fill" data-width="71%"></div></div>
+        </div>
+      </div>
+
+      <div class="threat-card yellow reveal delay-3">
+        <span class="threat-icon"></span>
+        <h3>Agroindustria Invasiva</h3>
+        <p>Cultivos de palma y ganadería extensiva avanzan sobre los ecosistemas más frágiles, eliminando biodiversidad nativa.</p>
+        <div class="threat-severity">
+          <span class="severity-label">Nivel de amenaza</span>
+          <div class="severity-bar"><div class="severity-fill" data-width="55%"></div></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Acciones de conservación -->
+    <div class="cons-heading reveal">
+      <h3>Acciones de Conservación</h3>
+      <p>Estas son las estrategias que están dando resultado para proteger el Corazón del Mundo.</p>
+    </div>
+
+    <div class="conservation-grid">
+
+      <div class="conservation-card reveal delay-1">
+        <span class="cons-icon"></span>
+        <div class="cons-text">
+          <h4>Reforestación Nativa</h4>
+          <p>Programas de restauración con especies nativas en más de 8.000 ha, liderados por comunidades indígenas.</p>
+        </div>
+      </div>
+
+      <div class="conservation-card reveal delay-2">
+        <span class="cons-icon"></span>
+        <div class="cons-text">
+          <h4>Resguardos Indígenas</h4>
+          <p>Los territorios de Kogi, Arhuaco y Wiwa funcionan como zonas de conservación con altísima efectividad.</p>
+        </div>
+      </div>
+
+      <div class="conservation-card reveal delay-3">
+        <span class="cons-icon"></span>
+        <div class="cons-text">
+          <h4>Monitoreo Científico</h4>
+          <p>Estaciones de monitoreo climático y biológico generan datos para decisiones de conservación basadas en evidencia.</p>
+        </div>
+      </div>
+
+      <div class="conservation-card reveal delay-1">
+        <span class="cons-icon"></span>
+        <div class="cons-text">
+          <h4>Corredores Biológicos</h4>
+          <p>Proyectos de conectividad entre parches de bosque que permiten el flujo genético de fauna y flora.</p>
+        </div>
+      </div>
+
+      <div class="conservation-card reveal delay-2">
+        <span class="cons-icon"></span>
+        <div class="cons-text">
+          <h4>Educación Ambiental</h4>
+          <p>Programas que integran el saber ancestral indígena con la ciencia moderna en una visión biocultural.</p>
+        </div>
+      </div>
+
+      <div class="conservation-card reveal delay-3">
+        <span class="cons-icon"></span>
+        <div class="cons-text">
+          <h4>Política Pública</h4>
+          <p>Pagos por servicios ecosistémicos que remuneran a familias campesinas e indígenas por conservar los bosques.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       GLOSARIO
+  ═══════════════════════════════════════ -->
+  <section id="glosario">
+    <div class="section-header reveal">
+      <span class="eyebrow">Para Aprender</span>
+      <h2 class="section-title">Glosario de Términos</h2>
+      <p class="section-desc">Palabras clave para entender mejor la ecología de la Sierra Nevada. Haz clic en cada término para ver su definición.</p>
+    </div>
+
+    <div class="glossary-grid reveal">
+
+      <details class="glossary-item">
+        <summary>Endémico</summary>
+        <p>Especie que vive de forma natural en un solo lugar del mundo y no se encuentra en ningún otro. Si su hábitat se destruye, la especie puede desaparecer para siempre.</p>
+      </details>
+
+      <details class="glossary-item">
+        <summary>Piso térmico</summary>
+        <p>Franja de altitud con temperatura, lluvia y vegetación características. La Sierra Nevada tiene casi todos los pisos térmicos del planeta, del cálido al nival, en muy poca distancia.</p>
+      </details>
+
+      <details class="glossary-item">
+        <summary>Bioma</summary>
+        <p>Gran comunidad de plantas y animales adaptada a un clima y tipo de suelo específico, como el bosque de niebla o el páramo.</p>
+      </details>
+
+      <details class="glossary-item">
+        <summary>Páramo</summary>
+        <p>Ecosistema de alta montaña tropical, por encima del límite del bosque, clave para capturar y regular el agua que abastece a los ríos.</p>
+      </details>
+
+      <details class="glossary-item">
+        <summary>Reserva de la Biosfera</summary>
+        <p>Territorio reconocido por la UNESCO por su gran valor ecológico y cultural, donde se busca equilibrar la conservación con el desarrollo humano.</p>
+      </details>
+
+      <details class="glossary-item">
+        <summary>Especie en peligro crítico</summary>
+        <p>Categoría que indica que una especie tiene un riesgo extremadamente alto de extinguirse en estado silvestre en un futuro muy cercano.</p>
+      </details>
+
+      <details class="glossary-item">
+        <summary>Corredor biológico</summary>
+        <p>Franja de vegetación que conecta dos zonas de bosque separadas, permitiendo que animales y plantas se muevan y se reproduzcan entre ellas.</p>
+      </details>
+
+      <details class="glossary-item">
+        <summary>Deforestación</summary>
+        <p>Eliminación de bosques nativos, generalmente para dar paso a cultivos o ganadería, con graves efectos sobre la biodiversidad y el clima.</p>
+      </details>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       QUIZ EDUCATIVO
+  ═══════════════════════════════════════ -->
+  <section id="quiz">
+    <div class="section-header reveal">
+      <span class="eyebrow">Pon a Prueba lo Aprendido</span>
+      <h2 class="section-title">Quiz de la Sierra Nevada</h2>
+      <p class="section-desc">Responde las 10 preguntas y descubre qué tanto sabes sobre este ecosistema único.</p>
+    </div>
+
+    <div class="quiz-wrap reveal" id="quizWrap">
+
+      <div class="quiz-progress">
+        <span id="quizProgressText">Pregunta 1 de 10</span>
+        <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="quizProgressFill"></div></div>
+      </div>
+
+      <div id="quizQuestions"></div>
+
+      <div class="quiz-result" id="quizResult" style="display:none">
+        <span class="quiz-result-icon">🏔️</span>
+        <h3 id="quizResultTitle"></h3>
+        <p id="quizResultText"></p>
+        <button class="btn-primary" id="quizRestartBtn">Volver a intentar</button>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer>
+    <div class="footer-inner">
+
+      <div class="footer-brand">
+        <h3>Sierra Nevada · Biodiversidad</h3>
+        <p>Un proyecto de divulgación científica y cultural dedicado a la conservación de uno de los ecosistemas más biodiversos del planeta.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Explorar</h4>
+        <ul>
+          <li><a href="#biodiversidad">Fauna y Flora</a></li>
+          <li><a href="#galeria">Galería</a></li>
+          <li><a href="#mapa">Mapa Interactivo</a></li>
+          <li><a href="#timeline">Historia Ecológica</a></li>
+          <li><a href="#amenazas">Conservación</a></li>
+          <li><a href="#glosario">Glosario</a></li>
+          <li><a href="#quiz">Quiz</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Referencias</h4>
+        <ul>
+          <li><a href="#">Parques Nacionales Colombia</a></li>
+          <li><a href="#">UNESCO Biosfera</a></li>
+          <li><a href="#">Instituto Von Humboldt</a></li>
+          <li><a href="#">IUCN Red List</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2025 Sierra Nevada Biodiversidad · Proyecto de Conservación</span>
+      <span>Datos: <a href="#">Parques Nacionales · IAvH · IUCN</a></span>
+    </div>
+  </footer>
+
+
+  <!-- ═══════════════════════════════════════
+       MODAL — Detalle de biodiversidad
+  ═══════════════════════════════════════ -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+    <div class="modal" id="modalContent">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+
+  <!-- Scripts al final del body -->
+  <script src="script.js"></script>
+</body>
+</html>
